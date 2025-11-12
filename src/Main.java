@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class Main {
 
@@ -23,6 +24,7 @@ public class Main {
                 "9. Mostrar los datos de fin a inicio\n"+
                 "10. Salir\n","Menú de opciones",3));
         */
+
         public static void main(String[] args) {
 
             int opcion = 0;
@@ -33,20 +35,24 @@ public class Main {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "1. Insertar un elemento al inicio\n"+ //TODO @María José Arévalo Coronado
-                                    "2. Insertar un elemento al final\n"+ //TODO @Anahí Hernández Morales
+                                    "2. Insertar un elemento al final\n"+
                                     "3. Insertar un elemento en orden\n"+ //TODO @TODO María Celeste Román Ruiz
                                     "4. Eliminar un elemento al inicio\n"+ //TODO @TODO María Celeste Román Ruiz
                                     "5. Eliminar un elemento al final\n"+ //TODO @María José Arévalo Coronado
-                                    "6. Eliminar un elemento\n"+ //TODO @Anahí Hernández Morales
+                                    "6. Eliminar un elemento\n"+
                                     "7. Buscar un elemento\n"+ //TODO @María Celeste Román Ruiz
-                                    "8. Mostrar los datos de inicio a fin\n"+ //TODO @Anahí Hernández Morales
+                                    "8. Mostrar los datos de inicio a fin\n"+
                                     "9. Mostrar los datos de fin a inicio\n"+ //TODO @TODO María José Arévalo Coronado
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
                         case 1://Insertar un elemento al inicio TODO @María José Arévalo Coronado
                             break;
-                        case 2://Insertar un elemento al final TODO @Anahí Hernández Morales
+                        case 2://Insertar un elemento al final
+                            elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                    "Ingresa el elemento a insertar al final:", "Insertar al Final", 3));
+                            lista.insertarFinal(elemento);
+                            JOptionPane.showMessageDialog(null, "Elemento " + elemento + " insertado al final.");
                             break;
                         case 3: //Insertar en orden TODO @TODO María Celeste Román Ruiz
                             break;
@@ -54,12 +60,33 @@ public class Main {
                             break;
                         case 5: //Eliminar al final TODO @María José Arévalo Coronado
                             break;
-                        case 6: //Eliminar TODO @Anahí Hernández Morales
+                        case 6: //Eliminar
+                            if (!lista.listaVacia()) {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento a eliminar:", "Eliminar Elemento", 3));
+                                int eliminado = lista.eliminarElemento(elemento);
+                                if (eliminado != -1) {
+                                    JOptionPane.showMessageDialog(null, "Elemento " + eliminado + " eliminado con éxito.");
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "El elemento " + elemento + " no se encontró en la lista.",
+                                            "Búsqueda", JOptionPane.INFORMATION_MESSAGE);
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "¡La lista está vacía! No se puede eliminar.",
+                                        "Error", JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
                         case 7: //Buscar elemento TODO @María Celeste Román Ruiz
                             break;
-                        case 8: //MostrarLista TODO @Anahí Hernández Morales
-                            lista.mostrarInicioFin();
+                        case 8: //MostrarLista
+                            String datosInicioFin = lista.mostrarInicioFin();
+                            if(datosInicioFin.isEmpty()){
+                                JOptionPane.showMessageDialog(null, "La lista está vacía.",
+                                        "Lista de Inicio a Fin", JOptionPane.INFORMATION_MESSAGE);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Lista (Inicio -> Fin):\n" + datosInicioFin,
+                                        "Lista de Inicio a Fin", JOptionPane.PLAIN_MESSAGE);
+                            }
                             break;
                         case 9: //MostrarLista TODO @TODO María José Arévalo Coronado
                             lista.mostrarFinInicio();
