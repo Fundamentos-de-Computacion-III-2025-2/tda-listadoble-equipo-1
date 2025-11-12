@@ -18,13 +18,13 @@ public class ListaDoble {
 
     //Metodo para agregar un NodoDoble al Inicio de la Lista Doble
     public void insertarInicio(int dato){
-
+        //TODO: María José Arévalo Coronado
 
     }
 
     //Metodo para insertar al Final de la lista doble
     public void insertarFinal(int dato){
-
+        //TODO Anahí Hernández Morales
     }
 
 
@@ -34,31 +34,31 @@ public class ListaDoble {
     se inserta al final */
 
     public void insertarEnOrden(int dato){
-
+        //TODO María Celeste Román Ruiz
     }
 
 
     //Eliminar al inicio
     public int eliminarInicio(){
-
+        //TODO María Celeste Román Ruiz
         return -1;
     }
 
     //Eliminar al final
     public int eliminarFinal(){
-
+        //TODO María José Arévalo Coronado
         return -1;
     }
 
     //Eliminar un elemento
     public int eliminarElemento(int elemento){
-
+        //TODO Anahí Hernández Morales
         return elemento;
     }
 
     //Metodo para buscar un elemento
     public boolean buscarElemento(int elemento){
-
+        //TODO María Celeste Román Ruiz
         return false;
 
     }
@@ -75,7 +75,7 @@ public class ListaDoble {
 
     //Imprimir los datos de la lista doble de fin a inicio
     public void mostrarFinInicio(){
-
+        //TODO María José Arévalo Coronado
     }
 
 
