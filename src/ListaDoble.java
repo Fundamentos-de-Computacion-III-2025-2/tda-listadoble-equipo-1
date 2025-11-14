@@ -23,8 +23,18 @@ public class ListaDoble {
     }
 
     //Metodo para insertar al Final de la lista doble
-    public void insertarFinal(int dato) {
-        //TODO Anahí Hernández Morales
+    public void insertarFinal(int dato){
+        //Anahí Hernández Morales
+
+        NodoDoble nuevo = new NodoDoble(dato);
+        if (listaVacia()) {
+            inicio = nuevo;
+            fin = nuevo;
+        } else {
+            fin.siguiente = nuevo;
+            nuevo.anterior = fin;
+            fin = nuevo;
+        }
     }
 
 
@@ -90,9 +100,50 @@ public class ListaDoble {
     }
 
     //Eliminar un elemento
-    public int eliminarElemento(int elemento) {
-        //TODO Anahí Hernández Morales
-        return elemento;
+    public int eliminarElemento(int elemento){
+        //Anahí Hernández Morales
+
+        if (listaVacia()) {
+            return -1;
+        }
+
+        NodoDoble actual = inicio;
+
+        //recorremos la lista
+        while (actual != null && actual.dato != elemento) {
+            actual = actual.siguiente;
+        }
+
+        if (actual == null) {
+            return -1;
+        }
+
+        //elemento al inicio
+        if (actual == inicio) {
+            if (inicio == fin) {
+                inicio = null;
+                fin = null;
+            } else {
+                inicio = inicio.siguiente;
+                if (inicio != null) {
+                    inicio.anterior = null;
+                }
+            }
+
+            //elemento al final
+        } else if (actual == fin) {
+            fin = fin.anterior;
+            if (fin != null) {
+                fin.siguiente = null;
+            }
+
+            //elemento al medio
+        } else {
+            actual.anterior.siguiente = actual.siguiente;
+            actual.siguiente.anterior = actual.anterior;
+        }
+
+        return actual.dato;
     }
 
     //Metodo para buscar un elemento
@@ -112,13 +163,23 @@ public class ListaDoble {
     }
 
     //Imprimir los datos de la lista doble de inicio a fin
-    public void mostrarInicioFin() {
-        NodoDoble actual = inicio;
-        System.out.println();
-        while (actual != null) {
-            System.out.print(actual.dato + " --> ");
+    public String mostrarInicioFin(){ // <--- ¡Cambiado de void a String!
+        NodoDoble actual=inicio;
+        StringBuilder sb = new StringBuilder(); // Usamos un constructor de cadenas eficiente
+
+        // Si la lista está vacía, devuelve una cadena vacía
+        if(listaVacia()){
+            return "";
+        }
+
+        while(actual!=null){
+            sb.append(actual.dato);
+            if(actual.siguiente != null){
+                sb.append(" <-> "); // Agregamos un separador visual
+            }
             actual = actual.siguiente;
         }
+        return sb.toString(); // <--- Ahora devuelve el String
     }
 
     //Imprimir los datos de la lista doble de fin a inicio
