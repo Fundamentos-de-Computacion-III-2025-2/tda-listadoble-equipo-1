@@ -54,9 +54,9 @@ public class Main {
                             lista.insertarFinal(elemento);
                             JOptionPane.showMessageDialog(null, "Elemento " + elemento + " insertado al final.");
                             break;
-                        case 3: //Insertar en orden TODO @TODO María Celeste Román Ruiz
+                        case 3: //Insertar en orden María Celeste Román Ruiz
                             break;
-                        case 4: //Eliminar al inicio TODO @TODO María Celeste Román Ruiz
+                        case 4: //Eliminar al inicio María Celeste Román Ruiz
                             break;
                         case 5: //Eliminar al final TODO @María José Arévalo Coronado
                             break;
@@ -76,7 +76,7 @@ public class Main {
                                         "Error", JOptionPane.ERROR_MESSAGE);
                             }
                             break;
-                        case 7: //Buscar elemento TODO @María Celeste Román Ruiz
+                        case 7: //Buscar elemento María Celeste Román Ruiz
                             break;
                         case 8: //MostrarLista
                             String datosInicioFin = lista.mostrarInicioFin();
