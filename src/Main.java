@@ -34,20 +34,33 @@ public class Main {
             do {
                 try {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
-                            "1. Insertar un elemento al inicio\n"+ //TODO @María José Arévalo Coronado
+                            "1. Insertar un elemento al inicio\n"+
                                     "2. Insertar un elemento al final\n"+
                                     "3. Insertar un elemento en orden\n"+ //TODO @TODO María Celeste Román Ruiz
                                     "4. Eliminar un elemento al inicio\n"+ //TODO @TODO María Celeste Román Ruiz
-                                    "5. Eliminar un elemento al final\n"+ //TODO @María José Arévalo Coronado
+                                    "5. Eliminar un elemento al final\n"+
                                     "6. Eliminar un elemento\n"+
                                     "7. Buscar un elemento\n"+ //TODO @María Celeste Román Ruiz
                                     "8. Mostrar los datos de inicio a fin\n"+
-                                    "9. Mostrar los datos de fin a inicio\n"+ //TODO @TODO María José Arévalo Coronado
+                                    "9. Mostrar los datos de fin a inicio\n"+
                                     "10. Salir\n",
                             "Menú de opciones", 3));
                     switch (opcion) {
-                        case 1://Insertar un elemento al inicio TODO @María José Arévalo Coronado
+                        //Maria Jose Arevalo Coronado
+                        case 1://Insertar un elemento al inicio
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento a insertar al INICIO:",
+                                        "Insertando al Inicio", JOptionPane.INFORMATION_MESSAGE));
+                                lista.insertarInicio(elemento);
+                                JOptionPane.showMessageDialog(null, "Elemento " + elemento + " insertado al inicio.",
+                                        "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                            } catch (NumberFormatException e) {
+                                JOptionPane.showMessageDialog(null, "Entrada inválida. Debe ser un número.",
+                                        "Error de Entrada", JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
+
                         case 2://Insertar un elemento al final
                             elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
                                     "Ingresa el elemento a insertar al final:", "Insertar al Final", 3));
@@ -72,8 +85,20 @@ public class Main {
                                         "Error", JOptionPane.ERROR_MESSAGE);
                             }
                             break;
-                        case 5: //Eliminar al final TODO @María José Arévalo Coronado
+
+                        //María José Arévalo Coronado
+                        case 5: //Eliminar al final
+                            if (lista.listaVacia()) {
+                                JOptionPane.showMessageDialog(null, "La lista está vacía, no se puede eliminar.",
+                                        "Lista Vacía", JOptionPane.WARNING_MESSAGE);
+                            } else {
+                                elemento = lista.eliminarFinal();
+                                JOptionPane.showMessageDialog(null, "Elemento " + elemento + " eliminado del final.",
+                                        "Elemento Eliminado", JOptionPane.INFORMATION_MESSAGE);
+                            }
+
                             break;
+
                         case 6: //Eliminar
                             if (!lista.listaVacia()) {
                                 elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
@@ -118,9 +143,17 @@ public class Main {
                                         "Lista de Inicio a Fin", JOptionPane.PLAIN_MESSAGE);
                             }
                             break;
-                        case 9: //MostrarLista TODO @TODO María José Arévalo Coronado
-                            lista.mostrarFinInicio();
+
+                            //María José Arévalo Coronado
+                        case 9: //MostrarLista
+                            if (lista.listaVacia()) {
+                                JOptionPane.showMessageDialog(null, "La lista está vacía.", "Lista Vacía", JOptionPane.WARNING_MESSAGE);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Los datos se mostrarán en la consola.", "Revisa la Consola", JOptionPane.INFORMATION_MESSAGE);
+                                lista.mostrarFinInicio();
+                            }
                             break;
+
                         case 10: //Salir
                             JOptionPane.showMessageDialog(null, "Programa Finalizado");
                             break;
