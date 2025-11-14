@@ -16,9 +16,20 @@ public class ListaDoble {
         }
     }
 
+    //TODO: María José Arévalo Coronado
     //Metodo para agregar un NodoDoble al Inicio de la Lista Doble
     public void insertarInicio(int dato){
-        //TODO: María José Arévalo Coronado
+        NodoDoble nuevo = new NodoDoble(dato);
+
+        if (listaVacia()) {
+            inicio = nuevo;
+            fin = nuevo;
+        } else {
+            nuevo.siguiente = inicio;
+            inicio.anterior = nuevo;
+            inicio = nuevo;
+        }
+
 
     }
 
@@ -44,10 +55,27 @@ public class ListaDoble {
         return -1;
     }
 
+    //TODO María José Arévalo Coronado
     //Eliminar al final
     public int eliminarFinal(){
-        //TODO María José Arévalo Coronado
-        return -1;
+        if (listaVacia()) {
+            System.out.println("No se puede eliminar, la lista está vacia.");
+            return -1;
+        }
+
+        int datoEliminado = fin.dato;
+
+        if (inicio == fin) {
+            inicio = null;
+            fin = null;
+        } else {
+            fin = fin.anterior;
+            fin.siguiente = null;
+        }
+
+        return datoEliminado;
+
+
     }
 
     //Eliminar un elemento
@@ -73,10 +101,22 @@ public class ListaDoble {
         }
     }
 
+    //TODO María José Arévalo Coronado
     //Imprimir los datos de la lista doble de fin a inicio
     public void mostrarFinInicio(){
-        //TODO María José Arévalo Coronado
+        if (listaVacia()) {
+            System.out.println("\nLa lista está vacia.");
+            return;
+        }
+
+        NodoDoble actual = fin;
+        System.out.println();
+
+        while(actual != null){
+            System.out.print(actual.dato + " <-- ");
+            actual = actual.anterior;
+        }
+        System.out.println();
     }
 
-
-}
+    }
