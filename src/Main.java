@@ -34,11 +34,11 @@ public class Main {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "1. Insertar un elemento al inicio\n"+ //TODO @María José Arévalo Coronado
                                     "2. Insertar un elemento al final\n"+ //TODO @Anahí Hernández Morales
-                                    "3. Insertar un elemento en orden\n"+ //TODO @TODO María Celeste Román Ruiz
-                                    "4. Eliminar un elemento al inicio\n"+ //TODO @TODO María Celeste Román Ruiz
+                                    "3. Insertar un elemento en orden\n"+ //María Celeste Román Ruiz
+                                    "4. Eliminar un elemento al inicio\n"+ //María Celeste Román Ruiz
                                     "5. Eliminar un elemento al final\n"+ //TODO @María José Arévalo Coronado
                                     "6. Eliminar un elemento\n"+ //TODO @Anahí Hernández Morales
-                                    "7. Buscar un elemento\n"+ //TODO @María Celeste Román Ruiz
+                                    "7. Buscar un elemento\n"+ //María Celeste Román Ruiz
                                     "8. Mostrar los datos de inicio a fin\n"+ //TODO @Anahí Hernández Morales
                                     "9. Mostrar los datos de fin a inicio\n"+ //TODO @TODO María José Arévalo Coronado
                                     "10. Salir\n",
@@ -48,15 +48,15 @@ public class Main {
                             break;
                         case 2://Insertar un elemento al final TODO @Anahí Hernández Morales
                             break;
-                        case 3: //Insertar en orden TODO @TODO María Celeste Román Ruiz
+                        case 3: //Insertar en orden María Celeste Román Ruiz
                             break;
-                        case 4: //Eliminar al inicio TODO @TODO María Celeste Román Ruiz
+                        case 4: //Eliminar al inicio María Celeste Román Ruiz
                             break;
                         case 5: //Eliminar al final TODO @María José Arévalo Coronado
                             break;
                         case 6: //Eliminar TODO @Anahí Hernández Morales
                             break;
-                        case 7: //Buscar elemento TODO @María Celeste Román Ruiz
+                        case 7: //Buscar elemento María Celeste Román Ruiz
                             break;
                         case 8: //MostrarLista TODO @Anahí Hernández Morales
                             lista.mostrarInicioFin();
