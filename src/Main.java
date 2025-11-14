@@ -49,14 +49,44 @@ public class Main {
                         case 2://Insertar un elemento al final TODO @Anahí Hernández Morales
                             break;
                         case 3: //Insertar en orden María Celeste Román Ruiz
+                            try{
+                                elemento=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el elemento", "Insertar en Orden", JOptionPane.INFORMATION_MESSAGE));
+                                lista.insertarEnOrden(elemento);
+                                JOptionPane.showMessageDialog(null, "Elemento " + elemento + " insertado en orden.");
+                            } catch (NumberFormatException e) {
+                                JOptionPane.showMessageDialog(null,"Ingrese un número. ");
+                            }
                             break;
                         case 4: //Eliminar al inicio María Celeste Román Ruiz
+                            if(!lista.listaVacia()){
+                                elemento = lista.eliminarInicio();
+                                JOptionPane.showMessageDialog(null, "Elemento " + elemento + " eliminado del inicio.");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "La lista está vacía.",
+                                        "Error", JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
                         case 5: //Eliminar al final TODO @María José Arévalo Coronado
                             break;
                         case 6: //Eliminar TODO @Anahí Hernández Morales
                             break;
                         case 7: //Buscar elemento María Celeste Román Ruiz
+                            if (lista.listaVacia()) {
+                                JOptionPane.showMessageDialog(null, "La lista está vacía. ", "Lista Vacía", JOptionPane.INFORMATION_MESSAGE);
+                                break;
+                            }
+                            try {
+                                elemento = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                        "Ingresa el elemento a buscar:",
+                                        "Buscar Elemento", JOptionPane.INFORMATION_MESSAGE));
+                                if(lista.buscarElemento(elemento)){
+                                    JOptionPane.showMessageDialog(null, "El elemento " + elemento + " se encuentra en la lista.");
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "El elemento " + elemento + " no se encuentra en la lista.");
+                                }
+                            } catch (NumberFormatException e) {
+                                JOptionPane.showMessageDialog(null, "Ingrese un número", "Error ",JOptionPane.ERROR_MESSAGE);
+                            }
                             break;
                         case 8: //MostrarLista TODO @Anahí Hernández Morales
                             lista.mostrarInicioFin();
