@@ -58,8 +58,7 @@ public class ListaDoble {
         NodoDoble nodo = new NodoDoble(dato);
 
         if (listaVacia()) {
-            inicio = fin;
-            fin = nodo;
+            insertarInicio(dato);
             return;
         }
 
@@ -69,13 +68,9 @@ public class ListaDoble {
         }
 
         if (actual == inicio) {
-            nodo.siguiente = inicio;
-            inicio.anterior = nodo;
-            inicio = nodo;
+            insertarInicio(dato);
         } else if (actual == null) {
-            fin.siguiente = nodo;
-            nodo.anterior = fin;
-            fin = nodo;
+            insertarFinal(dato);
         } else {
             nodo.siguiente = actual;
             nodo.anterior = actual.anterior;

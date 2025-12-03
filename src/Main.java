@@ -36,11 +36,11 @@ public class Main {
                     opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "1. Insertar un elemento al inicio\n"+
                                     "2. Insertar un elemento al final\n"+
-                                    "3. Insertar un elemento en orden\n"+ //TODO @TODO María Celeste Román Ruiz
-                                    "4. Eliminar un elemento al inicio\n"+ //TODO @TODO María Celeste Román Ruiz
+                                    "3. Insertar un elemento en orden\n"+
+                                    "4. Eliminar un elemento al inicio\n"+
                                     "5. Eliminar un elemento al final\n"+
                                     "6. Eliminar un elemento\n"+
-                                    "7. Buscar un elemento\n"+ //TODO @María Celeste Román Ruiz
+                                    "7. Buscar un elemento\n"+
                                     "8. Mostrar los datos de inicio a fin\n"+
                                     "9. Mostrar los datos de fin a inicio\n"+
                                     "10. Salir\n",
@@ -146,11 +146,13 @@ public class Main {
 
                             //María José Arévalo Coronado
                         case 9: //MostrarLista
-                            if (lista.listaVacia()) {
-                                JOptionPane.showMessageDialog(null, "La lista está vacía.", "Lista Vacía", JOptionPane.WARNING_MESSAGE);
+                            String datosFinInicio = lista.mostrarFinInicio();
+                            if(datosFinInicio.isEmpty()){
+                                JOptionPane.showMessageDialog(null, "La lista está vacía.",
+                                        "Lista de Fin a Inicio", JOptionPane.INFORMATION_MESSAGE);
                             } else {
-                                JOptionPane.showMessageDialog(null, "Los datos se mostrarán en la consola.", "Revisa la Consola", JOptionPane.INFORMATION_MESSAGE);
-                                lista.mostrarFinInicio();
+                                JOptionPane.showMessageDialog(null, "Lista (Inicio -> Fin):\n" + datosFinInicio,
+                                        "Lista de Fin a Inicio", JOptionPane.PLAIN_MESSAGE);
                             }
                             break;
 
